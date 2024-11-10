@@ -9,7 +9,7 @@ import Nav from "./Nav"
 const Header = () => {
   return (
     <header className="py-8 text-white xl:py-12">
-       <div className="container mx-auto">
+       <div className="container flex items-center justify-between mx-auto">
 
         {/* logo */}
         <Link href="/">
@@ -18,11 +18,18 @@ const Header = () => {
           </h1>
         </Link>
 
-        {/* dekstop nav */}
-        <div className="hidden xl:flex">
+        {/* dekstop nav & add hire me button*/}
+        
+        
+        <div className="items-center hidden gap-8 xl:flex">
             <Nav/>
+            <Link href="/contact">
+                <Button className="ml-4">Hire Me</Button>
+            </Link>
         </div>
         
+        {/* mobile nav */}
+
 
 
         
