@@ -1,21 +1,51 @@
-import React from 'react'
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links = [
+    {
+        name: "home",
+        path: "/",      
+    },
+    {
+        name: "services",  
+        path: "/services",
+    },
+    {
+        name: "resume",
+        path: "/resume",
+    },
+    {
+        name: "work",
+        path: "/work",
+    },
+    {
+        name: "contact",
+        path: "/contact",
+    },
+    
+];
+
 
 const Nav = () => {
+    const pathname = usePathname();
+    console.log(pathname);
+    
   return (
-    <nav>
-        <ul>
-            <li>
-            <a href="#about">About</a>
-            </li>
-            <li>
-            <a href="#projects">Projects</a>
-            </li>
-            <li>
-            <a href="#contact">Contact</a>
-            </li>
-        </ul>
+    <nav className="flex gap-8">
+        {links.map((link,index) => {
+            return (
+                <Link key={index} href={link.path} className={`${link.path === pathname && "text-cyan-300 border-b-2 border-cyan-300" }`}>
+                    {link.name}
+                </Link> 
+            )
+
+        })}
     </nav>
+    
   )
 }
+
 
 export default Nav
