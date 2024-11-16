@@ -1,8 +1,10 @@
 import {JetBrains_Mono} from "next/font/google";
 import "./globals.css";
 
-// Import the Header component
+// Import  component
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
+import StairTransition from "@/components/StairTransition";
 
 
 
@@ -28,7 +30,11 @@ export default function RootLayout({ children }) {
         className={`${jetbrainsMono.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <Header/>
-        {children}
+        <StairTransition/>
+        <PageTransition>
+          {children}
+        </PageTransition>
+        
       </body>
     </html>
   );
